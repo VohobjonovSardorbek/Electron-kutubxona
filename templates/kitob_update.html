@@ -2,21 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Kitob | qoshish</title>
+    <title>Kitob | tahrirlash</title>
 </head>
 <body>
-<h2>Yangi kitob qoshish</h2>
+<h1>{{ kitob.nom }} kitobini tahrirlash</h1>
 <hr>
 <form method="post">
   {% csrf_token %}
   <label>Nom:</label>
-  <input type="text" name="nom" required>
+  <input type="text" name="nom" value="{{ kitob.nom }}" required>
   <br><br>
   <label>User:</label>
-  <input type="text" name="user" required>
+  <input type="text" name="user" value="{{ kitob.user }}" required>
   <br><br>
   <label>Muallif:</label>
   <select name="muallif_id">
+    <option value="{{ kitob.muallif.id }}" >{{ kitob.muallif.ism }}</option>
     {% for muallif in mualliflar %}
       <option value="{{ muallif.id }}">{{ muallif.ism }}</option>
     {% endfor %}
@@ -27,6 +28,7 @@
   <br><br>
   <label>Bo'lim:</label>
   <select name="bolim_id">
+    <option value="{{ kitob.bolim.id }}">{{ kitob.bolim.nom }}</option>
     {% for bolim in bolimlar %}
       <option value="{{ bolim.id }}">{{ bolim.nom }}</option>
     {% endfor %}

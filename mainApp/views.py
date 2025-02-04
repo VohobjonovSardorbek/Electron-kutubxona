@@ -70,3 +70,24 @@ def kitob_detele_view(request, pk):
     kitob = get_object_or_404(Kitob, id=pk)
     kitob.delete()
     return redirect('kitoblar')
+
+
+def kitob_update_view(request, pk):
+    if request.method == 'POST':
+        Kitob.objects.filter(id=pk).update(
+            nom=request.POST.get('nom'),
+            user=request.POST.get('user'),
+            muallif=Muallif.objects.get(id=request.POST.get('muallif_id')),
+            yil=request.POST.get('yil'),
+            bolim=Bolim.objects.get(id=request.POST.get('bolim_id'))
+        )
+        return redirect('kitoblar')
+    kitob = Kitob.objects.get(id=pk)
+    mualliflar = Muallif.objects.exclude(ism=kitob.muallif.ism)
+    bolimlar = Bolim.objects.exclude(nom=kitob.bolim.nom)
+    context = {
+        "kitob" : kitob,
+        "mualliflar" : mualliflar,
+        "bolimlar" : bolimlar
+    }
+    return render(request, 'kitob_update.html', context=context)

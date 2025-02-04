@@ -30,4 +30,5 @@ urlpatterns = [
     path('yangi_asarlar/', yangi_asarlar_view),
     path('kitob/qoshish/', kitob_qoshish_view),
     path("kitob/<int:pk>/o'chirish/", kitob_detele_view),
+    path("kitob/<int:pk>/tahrirlash/", kitob_update_view),
 ]
