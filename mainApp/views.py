@@ -52,9 +52,9 @@ def kitob_qoshish_view(request):
         Kitob.objects.create(
             nom=request.POST.get('nom'),
             user=request.POST.get('user'),
-            muallif=Muallif.objects.get(id=request.POST.get('muallif_di')),
+            muallif=Muallif.objects.get(id=request.POST.get('muallif_id')),
             yil=request.POST.get('yil'),
-            bolim=Bolim.objects.get(id=request.POST.get('bolim_di')),
+            bolim=Bolim.objects.get(id=request.POST.get('bolim_id')),
         )
         return redirect('kitoblar')
     mualliflar = Muallif.objects.order_by('ism')

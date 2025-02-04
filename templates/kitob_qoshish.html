@@ -8,6 +8,7 @@
 <h2>Yangi kitob qoshish</h2>
 <hr>
 <form method="post">
+  {% csrf_token %}
   <label>Nom:</label>
   <input type="text" name="nom" required>
   <br><br>
