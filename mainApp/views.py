@@ -36,16 +36,18 @@ def kitoblar_view(request):
 def yangi_asarlar_view(request):
     kitoblar = Kitob.objects.filter(muallif__tirik=True)
     context = {
-        "kitoblar" : kitoblar
+        "kitoblar": kitoblar
     }
     return render(request, 'yangi_asarlar.html', context=context)
+
 
 def kitob_details_view(request, pk):
     kitob = get_object_or_404(Kitob, id=pk)
     context = {
-        "kitob" : kitob
+        "kitob": kitob
     }
     return render(request, 'kitob_details.html', context=context)
+
 
 def kitob_qoshish_view(request):
     if request.method == 'POST':
@@ -60,8 +62,8 @@ def kitob_qoshish_view(request):
     mualliflar = Muallif.objects.order_by('ism')
     bolimlar = Bolim.objects.order_by('nom')
     context = {
-        "mualliflar" : mualliflar,
-        "bolimlar" : bolimlar
+        "mualliflar": mualliflar,
+        "bolimlar": bolimlar
     }
     return render(request, 'kitob_qoshish.html', context=context)
 
@@ -86,8 +88,8 @@ def kitob_update_view(request, pk):
     mualliflar = Muallif.objects.exclude(ism=kitob.muallif.ism)
     bolimlar = Bolim.objects.exclude(nom=kitob.bolim.nom)
     context = {
-        "kitob" : kitob,
-        "mualliflar" : mualliflar,
-        "bolimlar" : bolimlar
+        "kitob": kitob,
+        "mualliflar": mualliflar,
+        "bolimlar": bolimlar
     }
     return render(request, 'kitob_update.html', context=context)

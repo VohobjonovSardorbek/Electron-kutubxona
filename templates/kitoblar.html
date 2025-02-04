@@ -7,17 +7,17 @@
 <body>
 <h1>Kitoblar ro'yxati</h1>
 <hr>
-  {% for kitob in kitoblar %}
-    <p>{{ forloop.counter }}.
-        <a href="/kitoblar/{{ kitob.id }}/">{{ kitob.nom }}</a>
-        <a href="/kitob/{{ kitob.id }}/o'chirish/">
-            <button>O'chirish</button>
-        </a>
-        <a href="/kitob/{{ kitob.id }}/tahrirlash/">
-            <button>Tahrirlash</button>
-        </a>
-    </p>
-  {% endfor %}
+{% for kitob in kitoblar %}
+<p>{{ forloop.counter }}.
+    <a href="/kitoblar/{{ kitob.id }}/">{{ kitob.nom }}</a>
+    <a href="/kitob/{{ kitob.id }}/o'chirish/">
+        <button>O'chirish</button>
+    </a>
+    <a href="/kitob/{{ kitob.id }}/tahrirlash/">
+        <button>Tahrirlash</button>
+    </a>
+</p>
+{% endfor %}
 <hr>
 <a href="/kitob/qoshish/">
     <button>Kitob qo'shish</button>
