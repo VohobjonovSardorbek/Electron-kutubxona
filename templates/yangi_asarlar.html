@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yangi asarlar</title>
+</head>
+<body>
+<h1>Yangi asralar ro'yxati</h1>
+<hr>
+{% for kitob in kitoblar %}
+  <p>
+    {{ forloop.counter }}.
+    {{ kitob.nom }}
+  </p>
+{% endfor %}
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kitoblar</title>
+</head>
+<body>
+<h1>Kitoblar ro'yxati</h1>
+<hr>
+  {% for kitob in kitoblar %}
+    <p>{{ forloop.counter }}.
+        <a href="/kitoblar/{{ kitob.id }}/">{{ kitob.nom }}</a>
+        <a href="/kitob/{{ kiotb.id }}/o'chirish/">
+            <button>O'chirish</button>
+        </a>
+    </p>
+  {% endfor %}
+<hr>
+<a href="/kitob/qoshish/">
+    <button>Kitob qo'shish</button>
+</a>
+</body>
+</html>

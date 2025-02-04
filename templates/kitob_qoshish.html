@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kitob | qoshish</title>
+</head>
+<body>
+<h2>Yangi kitob qoshish</h2>
+<hr>
+<form method="post">
+  <label>Nom:</label>
+  <input type="text" name="nom" required>
+  <br><br>
+  <label>User:</label>
+  <input type="text" name="user" required>
+  <br><br>
+  <label>Muallif:</label>
+  <select name="muallif_id">
+    {% for muallif in mualliflar %}
+      <option value="{{ muallif.id }}">{{ muallif.ism }}</option>
+    {% endfor %}
+  </select>
+  <br><br>
+  <label>Yil:</label>
+  <input type="date" name="yil" required>
+  <br><br>
+  <label>Bo'lim:</label>
+  <select name="bolim_id">
+    {% for bolim in bolimlar %}
+      <option value="{{ bolim.id }}">{{ bolim.nom }}</option>
+    {% endfor %}
+    <br><br>
+    <button>Ma'lumotlarni kiritish</button>
+  </select>
+</form>
+</body>
+</html>

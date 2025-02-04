@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bo'limlar</title>
+</head>
+<body>
+<h1>Bo'limlar ro'yxati</h1>
+<hr>
+{% for bolim in bolimlar %}
+  <p>
+    {{ forloop.counter }}.
+    {{ bolim.nom }}
+  </p>
+{% endfor %}
+</body>
+</html>
